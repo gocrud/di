@@ -163,9 +163,6 @@ func (c *container) RegisterApi(inter any, implement any) Container {
 	}
 	// 判断是否实现了接口
 	var impleRef = reflect.TypeOf(implement)
-	//if impleRef.Kind() != reflect.Ptr {
-	//	panic("implement必须是指针")
-	//}
 	if !impleRef.Implements(interRef.Elem()) {
 		panic(fmt.Sprintf("%s必须是%v的实现类", impleRef.Elem().String(), interRef.Elem()))
 	}
@@ -180,9 +177,6 @@ func (c *container) RegisterKey(token string, value any) Container {
 
 func (c *container) RegisterVal(value any) Container {
 	ref := reflect.ValueOf(value)
-	//if ref.Kind() != reflect.Ptr {
-	//	panic("value 必须是指针类型")
-	//}
 	kindStr := getValueKindStr(ref)
 	c.registerStore.Store(kindStr, value)
 	return c
