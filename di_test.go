@@ -19,7 +19,7 @@ func (p P1) SayHello() {
 
 type Home struct {
 	XM Person `di:"api"`
-	Li *P1    `di:"val"`
+	Li P1     `di:"val"`
 }
 
 func TestNewContainer(t *testing.T) {
