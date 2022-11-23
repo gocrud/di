@@ -1,3 +1,3 @@
-module github.com/gocrud/ioc
+module github.com/gocrud/di
 
 go 1.19
